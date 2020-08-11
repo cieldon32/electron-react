@@ -1,0 +1,31 @@
+type User {
+  id: ID!
+  nick: String!
+  email: String!
+  password: String!
+}
+
+type TokenPayload {
+  token: String
+}
+
+type Query {
+  hello: String!
+  findUserById(id: String!): User!
+  findAllUsers: [User!]!
+}
+
+type Mutation {
+  login(loginInput: LoginInput!): TokenPayload!
+  register(registerInput: RegisterInput!): TokenPayload!
+}
+
+input LoginInput {
+  nick: String!
+  password: String!
+}
+
+input RegisterInput {
+  nick: String!
+  password: String!
+}
